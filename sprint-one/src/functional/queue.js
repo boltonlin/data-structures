@@ -5,17 +5,21 @@ var Queue = function() {
   var storage = {};
 
   // Implement the methods below
-
   someInstance.enqueue = function(value) {
     if (someInstance.head === undefined) {
       someInstance.head = 0;
     }
-    storage[someInstance.size()] = value;
+    if (someInstance.tail === undefined) {
+      someInstance.tail = 0;
+    }
+    storage[someInstance.tail] = value;
+    someInstance.tail++;
   };
 
   someInstance.dequeue = function() {
     var output = storage[someInstance.head];
-    someInstance.head += 1;
+    delete storage[someInstance.head];
+    someInstance.head ++;
     return output;
   };
 
