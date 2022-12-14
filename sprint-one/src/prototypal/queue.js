@@ -10,12 +10,16 @@ Queue.prototype.enqueue = function (value) {
   if (this.head === undefined) {
     this.head = 0;
   }
-  this.storage[this.size()] = value;
+  if (this.tail === undefined) {
+    this.tail = 0;
+  }
+  this.storage[this.tail] = value;
+  this.tail++;
 }
 
 Queue.prototype.dequeue = function () {
   var output = this.storage[this.head];
-  this.head += 1;
+  this.head++;
   return output;
 }
 
