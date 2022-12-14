@@ -9,12 +9,17 @@ class Queue {
     if (this.head === undefined) {
       this.head = 0;
     }
-    this.storage[this.size()] = value;
+    if (this.tail === undefined) {
+      this.tail = 0;
+    }
+    this.storage[this.tail] = value;
+    this.tail++;
   }
 
   dequeue() {
     var output = this.storage[this.head];
-    this.head += 1;
+    delete this.storage[this.head];
+    this.head++;
     return output;
   }
 
