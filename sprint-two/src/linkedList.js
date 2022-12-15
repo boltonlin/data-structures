@@ -83,7 +83,6 @@ var Node = function(value) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-// linked list contains a list of nodes
-// node is an object (contains a value and a link to the next)
-// find is linear time
-// adding to list is constant time (adds to the tail)
+// contains() is worst case linear time
+// addtoTail() is constant
+// removeHead() is constant
