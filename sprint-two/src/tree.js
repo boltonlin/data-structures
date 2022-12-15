@@ -19,27 +19,25 @@ treeMethods.addChild = function(value) {
 
  // traverse the tree
 treeMethods.contains = function(target) {
-  console.log(this.value);
+  console.log('looking for ' + target);
+  console.log('looking at ' + this.value);
   var output = false;
-   // if this value is equal to target
-   if (this.value === target) {
-     // return true
-     return true;
-     // otherwise
-   } else {
-     // if there are children
-     console.log(this.children);
-     if (this.children.length > 0) {
-        // look through each of its children - for each child
-        for (var i = 0; i < this.children.length; i++) {
-           // call contains on each child
-           return this.children[i].contains(target);
-        }
-     } else {
-      return false;
-     }
-   }
-   return false;
+  // if this value is equal to target
+  if (this.value === target) {
+    return true;
+  } else {
+    // if there are children
+    if (this.children.length > 0) {
+      // look through each of its children - for each child
+      for (var i = 0; i < this.children.length; i++) {
+        // call contains on each child
+        output = this.children[i].contains(target);
+        // if we found target, return true
+        if (output === true) return true;
+      }
+    }
+  }
+  return output;
 };
 
 
